@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-th:replace="~{base::layout(~{::section})}">
+	th:replace="~{base::layout(~{::section})}">
 <head>
 <meta charset="UTF-8">
 <title>Sign Up Page</title>
@@ -25,85 +25,75 @@ th:replace="~{base::layout(~{::section})}">
 								alt="" />
 						</div>
 						<h1 class="text-center">SignUp Here !!</h1>
-						
-						<form novalidate action="" th:action="@{/do_register}" method="post"
-							   ath:object="${user}">
+
+						<form novalidate action="" th:action="@{/do_register}" enctype="multipart/form-data"
+							method="post" ath:object="${user}">
 
 							<!-- name field -->
 							<div class="form-group">
-								<label for="name_field">Your Name:</label> 
-							<input name="name"
-							type="text" 
-							class="form-control" 
-							th:classappend="${#fields.hasErrors('user.name') ? 'is-invalid' : ''}"
-							id="name_field"
-							aria-describedby="emailHelp" 
-							placeholder="Enter Your Name Here"
-							required th:value="${user.name}"/>
-							
-							<div th:each="e : ${#fields.errors('user.name')}" 
-							th:text="${e}"
-							id="validationServer03Feedback" 
-							class="invalid-feedback">
-							Please provide a valid city.</div>
+								<label for="name_field">Your Name:</label> <input name="name"
+									type="text" class="form-control"
+									th:classappend="${#fields.hasErrors('user.name') ? 'is-invalid' : ''}"
+									id="name_field" aria-describedby="emailHelp"
+									placeholder="Enter Your Name Here" required
+									th:value="${user.name}" />
+
+								<div th:each="e : ${#fields.errors('user.name')}" th:text="${e}"
+									id="validationServer03Feedback" class="invalid-feedback">
+									Please provide a valid city.</div>
 
 							</div>
 
 							<!-- email field -->
 							<div class="form-group">
-								<label for="email_field">Your Email:</label> 
-								<input name="email"
-								type="email" 
-								class="form-control" 
-							    th:classappend="${#fields.hasErrors('user.email')?'is-invalid':''}"
-							    id="email_field"
-								aria-describedby="emailHelp"
-								placeholder="Enter Your Email Here" required
-								th:value="${user.email}"/>
-							<div th:each="e : ${#fields.errors('user.email')}" 
-							th:text="${e}"
-							id="validationServer03Feedback" 
-							class="invalid-feedback">
-							Please provide a valid city.</div>
+								<label for="email_field">Your Email:</label> <input name="email"
+									type="email" class="form-control"
+									th:classappend="${#fields.hasErrors('user.email')?'is-invalid':''}"
+									id="email_field" aria-describedby="emailHelp"
+									placeholder="Enter Your Email Here" required
+									th:value="${user.email}" />
+								<div th:each="e : ${#fields.errors('user.email')}"
+									th:text="${e}" id="validationServer03Feedback"
+									class="invalid-feedback">Please provide a valid city.</div>
 							</div>
 
 							<!-- password field -->
 							<div class="form-group">
-								<label for="password_field">Your Password:</label> 
-								<input
-								name="password" type="password" class="form-control"
-								th:classappend="${#fields.hasErrors('user.password')?'is-invalid':''}"
-							   id="password_field" aria-describedby="emailHelp"
+								<label for="password_field">Your Password:</label> <input
+									name="password" type="password" class="form-control"
+									th:classappend="${#fields.hasErrors('user.password')?'is-invalid':''}"
+									id="password_field" aria-describedby="emailHelp"
 									placeholder="Enter Your Password Here" required>
-									
-							<div th:each="e : ${#fields.errors('user.password')}" 
-							th:text="${e}"
-							id="validationServer03Feedback" 
-							class="invalid-feedback">
-							Please provide a valid city.</div>
+
+								<div th:each="e : ${#fields.errors('user.password')}"
+									th:text="${e}" id="validationServer03Feedback"
+									class="invalid-feedback">Please provide a valid city.</div>
 
 							</div>
 
 							<!-- user about field -->
 							<div class="form-group text-center">
-								<textarea name="about" class="from-control col" rows="10" 
-								th:classappend="${#fields.hasErrors('user.about')?'is-invalid':''}"
-							    placeholder="Enter something about yourself"
-								th:text="${user.about}"></textarea>
-							
-							<div th:each="e : ${#fields.errors('user.about')}" 
-							th:text="${e}"
-							id="validationServer03Feedback" 
-							class="invalid-feedback">
-							Please provide a valid city.</div>
+								<textarea name="about" class="from-control col" rows="10"
+									th:classappend="${#fields.hasErrors('user.about')?'is-invalid':''}"
+									placeholder="Enter something about yourself"
+									th:text="${user.about}"></textarea>
+
+								<div th:each="e : ${#fields.errors('user.about')}"
+									th:text="${e}" id="validationServer03Feedback"
+									class="invalid-feedback">Please provide a valid city.</div>
+							</div>
+
+							<!-- Contact Image -->
+							<p class="text-secondary">Choose a profile picture (Optional).</p>
+							<div class="custom-file ">
+								<input type="file" name="profileImage" />
 							</div>
 
 							<!-- terms and conditions check box -->
 
 							<div class="from-group from-check text-center">
 								<input type="checkbox" name="agreement" class="from-check-input"
-									id="agreement" /> 
-									<label for="agreement"> Accept terms
+									id="agreement" /> <label for="agreement"> Accept terms
 									and conditions</label>
 
 							</div>

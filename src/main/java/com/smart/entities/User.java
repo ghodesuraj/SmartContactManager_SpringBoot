@@ -46,7 +46,7 @@ public class User {
 	@Size(min = 2, max = 500, message = "Minimum 2 and Maximum 500 Characters are allowed.!")
 	private String about;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
 	private List<Contact> contacts = new ArrayList<>();
 
 	public User() {

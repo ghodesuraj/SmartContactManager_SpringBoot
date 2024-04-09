@@ -1,11 +1,11 @@
 package com.smart.helper;
 
-public class Message {
+public class HelperMessageClass {
 
 	
 	private String content;
 	private String type;
-	public Message(String content, String type) {
+	public HelperMessageClass(String content, String type) {
 		super();
 		this.content = content;
 		this.type = type;
@@ -24,7 +24,7 @@ public class Message {
 	}
 	@Override
 	public String toString() {
-		return "Message [content=" + content + ", type=" + type + "]";
+		return "HelperMessageClass [content=" + content + ", type=" + type + "]";
 	}
 	
 	
